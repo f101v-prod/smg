@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerInputScript))]
@@ -13,9 +11,12 @@ public class PlayerMovementScript : MonoBehaviour
     private GameObject currentPlanet;
 
     [SerializeField]
-    private Int32 currentFuel = 100;
+    private int currentFuel = 100;
 
     private GameObject _selectedPlanet;
+
+    [SerializeField]
+    private LayerMask planetsLayersMask;
 
 #if ENABLE_INPUT_SYSTEM
     private PlayerInput _playerInput;
@@ -27,6 +28,9 @@ public class PlayerMovementScript : MonoBehaviour
 
     void Start()
     {
+        if (currentPlanet != null)
+            this.transform.position = currentPlanet.transform.position;
+
 #if ENABLE_INPUT_SYSTEM
         _playerInput = GetComponent<PlayerInput>();
 #endif
@@ -59,6 +63,9 @@ public class PlayerMovementScript : MonoBehaviour
 
         Collider2D hit = Physics2D.OverlapPoint(worldPosition);
         if (hit == null)
+            return;
+
+        if (!LayerChecker.IsInLayerMask(hit.gameObject.layer, planetsLayersMask))
             return;
 
         if (_selectedPlanet == hit.gameObject)
