@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
+[RequireComponent(typeof(LineRenderer))]
 public class PlanetMovementScript : MonoBehaviour
 {
     [SerializeField]

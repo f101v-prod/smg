@@ -80,17 +80,20 @@ public class PlayerMovementScript : MonoBehaviour
 
             currentFuel -= distance;
             currentPlanet = _selectedPlanet;
-            _selectedPlanet.GetComponent<SpriteRenderer>().color = Color.green;
+            _selectedPlanet.GetComponent<SpriteRenderer>().color = Color.white;
             _selectedPlanet = null;
-            this.transform.position = hit.transform.position;
+            
+            var newPosition = hit.transform.position;
+            newPosition.z = this.transform.position.z;
+            this.transform.position = newPosition;
         }
         else
         {
             if (_selectedPlanet != null)
-                _selectedPlanet.GetComponent<SpriteRenderer>().color = Color.green;
+                _selectedPlanet.GetComponent<SpriteRenderer>().color = Color.white;
 
             _selectedPlanet = hit.gameObject;
-            _selectedPlanet.GetComponent<SpriteRenderer>().color = Color.seaGreen;
+            _selectedPlanet.GetComponent<SpriteRenderer>().color = Color.green;
         }
 
 
