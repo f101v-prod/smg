@@ -158,8 +158,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a22ffd7839d5543649e77c5f312606cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  Segments: 360
-  Star: {fileID: 0}
+  speed: 1
+  segments: 60
+  star: {fileID: 0}
 --- !u!120 &7940998664426354718
 LineRenderer:
   serializedVersion: 3

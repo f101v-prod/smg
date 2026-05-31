@@ -2,9 +2,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum MovementState
+{
+    Wait,
+    Move,
+}
+
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; } = null;
+
+    public MovementState State { get; set; } = MovementState.Wait;
 
     [SerializeField]
     private List<ResourceCount> requiredResources;

@@ -8,12 +8,15 @@ public class PlayerResourceScript : MonoBehaviour
     [SerializeField]
     private LayerMask planetsLayersMask;
 
-    void OnCollisionEnter2D(Collision2D collision)
+    public void Collect(GameObject planet)
     {
-        if (!LayerChecker.IsInLayerMask(collision.gameObject.layer, planetsLayersMask))
+        if (planet == null)
             return;
 
-        if (!collision.gameObject.TryGetComponent<PlanetResourceScript>(out var planetResourcesController))
+        if (!LayerChecker.IsInLayerMask(planet.layer, planetsLayersMask))
+            return;
+
+        if (!planet.TryGetComponent<PlanetResourceScript>(out var planetResourcesController))
             return;
 
         var planetResources = planetResourcesController.GiveResources();
