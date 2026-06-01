@@ -11,8 +11,8 @@ public class BackgroundScript : MonoBehaviour
         var width = height * Camera.main.aspect;
 
         renderer.size = new Vector2(
-            width,
-            height
+            width + 1,
+            height + 1
         );
     }
 }

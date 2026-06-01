@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,7 +19,29 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private List<ResourceCount> requiredResources;
 
-    private Dictionary<ResourceKind, int> requiredResourcesDict;
+    [SerializeField]
+    private GameObject UiObject;
+
+    public Dictionary<ResourceKind, int> RequiredResourcesDict { private set; get; } = new()
+    {
+        [ResourceKind.Red] = 0,
+        [ResourceKind.Green] = 0,
+        [ResourceKind.Blue] = 0
+    };
+
+    public Dictionary<ResourceKind, int> CollectedResources { private set; get; } = new()
+    {
+        [ResourceKind.Red] = 0,
+        [ResourceKind.Green] = 0,
+        [ResourceKind.Blue] = 0,
+    };
+
+    public Dictionary<ResourceKind, Action<int, int, int>> OnResourcesFound { get; private set; } = new()
+    {
+        [ResourceKind.Red] = (curr, incomming, required) => {},
+        [ResourceKind.Green] = (curr, incomming, required) => {},
+        [ResourceKind.Blue] = (curr, incomming, required) => {}
+    };
 
     [SerializeField]
     private string nextSceneName; 
@@ -27,9 +51,8 @@ public class LevelManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            requiredResourcesDict = new Dictionary<ResourceKind, int>();
             foreach (var elem in requiredResources)
-                DictionaryHelpers.AdjustValue(ref requiredResourcesDict, elem.kind, elem.count);
+                RequiredResourcesDict[elem.kind] += elem.count;
 
             requiredResources.Clear();
         }
@@ -39,31 +62,38 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void ResourcesCollected(in Dictionary<ResourceKind, int> collectedResources)
+    void Start()
+    {
+        UiObject.SetActive(true);
+
+        foreach (var ctx in OnResourcesFound)
+            ctx.Value?.Invoke(CollectedResources[ctx.Key], 0, RequiredResourcesDict[ctx.Key]);
+    }
+
+    public void ResourcesCollected(in Dictionary<ResourceKind, int> newResources)
     {
         bool isLevelFinished = true;
 
-        var keysToRemove = new List<ResourceKind>();
+        foreach (var res in newResources)
+            CollectedResources[res.Key] += res.Value;
 
-        foreach(var res in requiredResourcesDict)
+        foreach(var res in CollectedResources)
         {
-            if (!collectedResources.ContainsKey(res.Key))
-            {
-                isLevelFinished = false;
-                break;
-            }
-
-            if(collectedResources[res.Key] < res.Value)
-            {
-                isLevelFinished = false;
-                break;
-            }
-
-            keysToRemove.Add(res.Key);
+            OnResourcesFound[res.Key]?.Invoke(
+                res.Value,
+                0,
+                RequiredResourcesDict[res.Key]
+            );
         }
 
-        foreach (var key in keysToRemove)
-            requiredResourcesDict.Remove(key);
+        foreach(var res in RequiredResourcesDict)
+        {
+            if(CollectedResources[res.Key] < res.Value)
+            {
+                isLevelFinished = false;
+                break;
+            }
+        }
 
         if (isLevelFinished)          
             FinishLevel();

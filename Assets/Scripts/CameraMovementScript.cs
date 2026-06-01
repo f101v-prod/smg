@@ -29,6 +29,9 @@ public class CameraMovementScript : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) 
+            return;
+            
         if (_input.IsPressed())
         {
             _diff = GetMouseWorldPos - Camera.main.transform.position;

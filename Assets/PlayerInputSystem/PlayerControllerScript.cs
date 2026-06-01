@@ -1,5 +1,8 @@
+using System;
 using NUnit.Framework;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerResourceScript))]
@@ -14,6 +17,8 @@ public class PlayerMovementScript : MonoBehaviour
 
     [SerializeField]
     private int currentFuel = 100;
+
+    public static Action<int, int> OnNewFuelCalculated;
 
     private GameObject _selectedPlanet;
 
@@ -33,6 +38,8 @@ public class PlayerMovementScript : MonoBehaviour
     [SerializeField]
     private float speed = 10;
 
+    private int _flightDistance = 0;
+
     private PlayerResourceScript _resourceCollector;
 
     void Start()
@@ -47,6 +54,8 @@ public class PlayerMovementScript : MonoBehaviour
 
         _resourceCollector = GetComponent<PlayerResourceScript>();
         _resourceCollector.Collect(currentPlanet);
+
+        OnNewFuelCalculated?.Invoke(currentFuel, 0);
     }
 
     // Update is called once per frame
@@ -81,6 +90,9 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void SelectPlanet()
     {
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) 
+            return;
+    
         if (LevelManager.Instance.State != MovementState.Wait)
             return;
 
@@ -108,25 +120,18 @@ public class PlayerMovementScript : MonoBehaviour
             return;
 
         if (_selectedPlanet == hit.gameObject)
-        {
-            int distance = 0;
-            
-            if (_selectedPlanet != currentPlanet)
-            {
-                _destination = CalculateFlightDestination();
-                distance = Mathf.CeilToInt(Vector3.Distance(
-                    transform.position, _destination));
-            }
-
-            if (currentFuel - distance < 0)
+        {   
+            if (currentFuel - _flightDistance < 0)
                 return;
 
-            currentFuel -= distance;
+            currentFuel -= _flightDistance;
             currentPlanet = _selectedPlanet;
             _selectedPlanet.GetComponent<SpriteRenderer>().color = Color.white;
             _selectedPlanet = null;
 
             LevelManager.Instance.State = MovementState.Move;
+            _flightDistance = 0;
+            OnNewFuelCalculated?.Invoke(currentFuel, 0);
         }
         else
         {
@@ -135,6 +140,23 @@ public class PlayerMovementScript : MonoBehaviour
 
             _selectedPlanet = hit.gameObject;
             _selectedPlanet.GetComponent<SpriteRenderer>().color = Color.green;
+
+            var resourcesInfo = _selectedPlanet.GetComponent<PlanetResourceScript>();
+            var resOnPlanet = resourcesInfo.GetResourcesDict();
+
+            foreach(var res in resOnPlanet)
+            {
+                LevelManager.Instance.OnResourcesFound[res.Key]?.Invoke(
+                    LevelManager.Instance.CollectedResources[res.Key],
+                    res.Value,
+                    LevelManager.Instance.RequiredResourcesDict[res.Key]);
+            }
+
+            _destination = CalculateFlightDestination();
+            _flightDistance = Mathf.CeilToInt(
+                Vector3.Distance(transform.position, _destination));
+            
+            OnNewFuelCalculated?.Invoke(currentFuel, _flightDistance);
         }
     }
 
