@@ -27,8 +27,8 @@ public class ResTextUi : MonoBehaviour
     private void UpdateCollectedResourceText(int current, int incomming, int required)
     {
         if (incomming == 0)
-            _textMeshPro.text = $"{current} / {required}";
+            _textMeshPro.text = $"{current}/{required}";
         else
-            _textMeshPro.text = $"{current} <color=green>+ {incomming}</color> / {required}";
+            _textMeshPro.text = $"{current}<color=green>+{incomming}</color>/{required}";
     }
 }

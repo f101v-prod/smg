@@ -26,6 +26,6 @@ public class FuelTextUi : MonoBehaviour
         if (required == 0)
             _textMeshPro.text = $"{current}";
         else
-            _textMeshPro.text = $"{current} <color=red>- {required}</color>";
+            _textMeshPro.text = $"{current}<color=red>-{required}</color>";
     }
 }
