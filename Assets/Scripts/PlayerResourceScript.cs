@@ -1,10 +1,12 @@
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PlayerResourceScript : MonoBehaviour
 {
     [SerializeField]
     private LayerMask planetsLayersMask;
+
+    public static Action<Transform> OnResourcesCollected;
 
     public void Collect(GameObject planet)
     {
@@ -17,7 +19,11 @@ public class PlayerResourceScript : MonoBehaviour
         if (!planet.TryGetComponent<PlanetResourceScript>(out var planetResourcesController))
             return;
 
+        if (planetResourcesController.IsPlanetEmpty)
+            return;
+
         var planetResources = planetResourcesController.GiveResources();
         LevelManager.Instance.ResourcesCollected(planetResources);
+        OnResourcesCollected?.Invoke(planet.transform);
     }
 }

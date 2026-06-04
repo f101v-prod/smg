@@ -20,6 +20,10 @@ public class PlayerMovementScript : MonoBehaviour
 
     public static Action<int, int> OnNewFuelCalculated;
 
+    public static Action<Transform> OnMoved;
+
+    public static Action<Transform> OnCannotMove;
+
     private GameObject _selectedPlanet;
 
     [SerializeField]
@@ -122,8 +126,12 @@ public class PlayerMovementScript : MonoBehaviour
         if (_selectedPlanet == hit.gameObject)
         {   
             if (currentFuel - _flightDistance < 0)
+            {
+                OnCannotMove?.Invoke(transform);
                 return;
+            }
 
+            bool isFlightOnSamePlanet = currentPlanet == _selectedPlanet;
             currentFuel -= _flightDistance;
             currentPlanet = _selectedPlanet;
             _selectedPlanet.GetComponent<SpriteRenderer>().color = Color.white;
@@ -132,6 +140,9 @@ public class PlayerMovementScript : MonoBehaviour
             LevelManager.Instance.State = MovementState.Move;
             _flightDistance = 0;
             OnNewFuelCalculated?.Invoke(currentFuel, 0);
+
+            if (!isFlightOnSamePlanet)
+                OnMoved?.Invoke(transform);
         }
         else
         {

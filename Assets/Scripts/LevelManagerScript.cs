@@ -1,6 +1,6 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +14,8 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; } = null;
 
+    public static Action<Transform> OnLevelFinished;
+
     public MovementState State { get; set; } = MovementState.Wait;
 
     [SerializeField]
@@ -21,6 +23,12 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField]
     private GameObject UiObject;
+
+    [SerializeField]
+    private GameObject SfxPlayerObject;
+
+    [SerializeField]
+    private string nextSceneName; 
 
     public Dictionary<ResourceKind, int> RequiredResourcesDict { private set; get; } = new()
     {
@@ -43,11 +51,11 @@ public class LevelManager : MonoBehaviour
         [ResourceKind.Blue] = (curr, incomming, required) => {}
     };
 
-    [SerializeField]
-    private string nextSceneName; 
-
     void Awake()
     {
+        UiObject.SetActive(false);
+        SfxPlayerObject.SetActive(false);
+
         if (Instance == null)
         {
             Instance = this;
@@ -65,6 +73,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         UiObject.SetActive(true);
+        SfxPlayerObject.SetActive(true);
 
         foreach (var ctx in OnResourcesFound)
             ctx.Value?.Invoke(CollectedResources[ctx.Key], 0, RequiredResourcesDict[ctx.Key]);
@@ -101,6 +110,13 @@ public class LevelManager : MonoBehaviour
 
     public void FinishLevel()
     {
+        OnLevelFinished?.Invoke(Camera.main.transform);
+        StartCoroutine(ChangeLevelDelayed(1f));
+    }
+
+    private IEnumerator ChangeLevelDelayed(float waitSeconds)
+    {
+        yield return new WaitForSeconds(waitSeconds);
         SceneManager.LoadScene(nextSceneName);
     }
 }

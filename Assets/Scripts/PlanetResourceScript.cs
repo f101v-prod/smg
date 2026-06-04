@@ -6,6 +6,14 @@ public class PlanetResourceScript : MonoBehaviour
     [SerializeField]
     private List<ResourceCount> resourcesList;
 
+    public bool IsPlanetEmpty
+    { 
+        get
+        {
+            return resourcesList?.Count == 0;
+        }
+    }
+
     public Dictionary<ResourceKind, int> GiveResources()
     {
         var res = GetResourcesDict();
