@@ -1,6 +1,4 @@
 using System;
-using NUnit.Framework;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -182,7 +180,7 @@ public class PlayerMovementScript : MonoBehaviour
         var planetController =
             _selectedPlanet.GetComponent<PlanetMovementScript>();
 
-        Assert.IsFalse(planetController == null);  
+        Debug.Assert(planetController != null);
 
         var tMin = 0f;
 
