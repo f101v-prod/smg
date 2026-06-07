@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3163403238333155709
 Transform:
   m_ObjectHideFlags: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dedb0e4c240084894b9d2402e770f8e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  moveSound: {fileID: 0}
-  cannotMoveSound: {fileID: 0}
-  resourcesCollectedSound: {fileID: 0}
-  levelFinishedSound: {fileID: 0}
+  moveSound: {fileID: 8300000, guid: d7bc6c99d4b194462b0e02fcc1c30e54, type: 3}
+  cannotMoveSound: {fileID: 8300000, guid: 42e237d5f643a4a88b7baac3a32ba5ba, type: 3}
+  resourcesCollectedSound: {fileID: 8300000, guid: 9471def8016534779bea32c54a40b4d9, type: 3}
+  levelFinishedSound: {fileID: 8300000, guid: a14518bb8c2d745d987178cdd6c1611d, type: 3}

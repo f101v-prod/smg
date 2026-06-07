@@ -48,7 +48,10 @@ MonoBehaviour:
   - kind: 0
     count: 1
   - kind: 1
-    count: 1
+    count: 2
   - kind: 2
     count: 1
-  nextSceneName: 
+  UiObject: {fileID: 0}
+  SfxPlayerObject: {fileID: 0}
+  NextLevelButton: {fileID: 0}
+  nextSceneName: map02
