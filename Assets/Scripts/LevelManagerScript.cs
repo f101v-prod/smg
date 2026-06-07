@@ -28,6 +28,9 @@ public class LevelManager : MonoBehaviour
     private GameObject SfxPlayerObject;
 
     [SerializeField]
+    private GameObject NextLevelButton;
+
+    [SerializeField]
     private string nextSceneName; 
 
     public Dictionary<ResourceKind, int> RequiredResourcesDict { private set; get; } = new()
@@ -111,12 +114,11 @@ public class LevelManager : MonoBehaviour
     public void FinishLevel()
     {
         OnLevelFinished?.Invoke(Camera.main.transform);
-        StartCoroutine(ChangeLevelDelayed(1f));
+        NextLevelButton.SetActive(true);
     }
 
-    private IEnumerator ChangeLevelDelayed(float waitSeconds)
+    public void StartNextLevel()
     {
-        yield return new WaitForSeconds(waitSeconds);
         SceneManager.LoadScene(nextSceneName);
     }
 }
