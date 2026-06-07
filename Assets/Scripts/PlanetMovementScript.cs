@@ -82,4 +82,13 @@ public class PlanetMovementScript : MonoBehaviour
     {
         return _angle;
     }
+
+    private void OnDrawGizmos()
+    {
+#if UNITY_EDITOR
+        float radius = Vector2.Distance(star.transform.position , transform.position);
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(star.transform.position, radius);
+#endif
+    }
 }
