@@ -153,7 +153,7 @@ PrefabInstance:
     - target: {fileID: 2074049822077741745, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1838984001962695065, guid: bbdad21c2652b4441938b90fddc2b580, type: 3}
+      objectReference: {fileID: 951679504244899334, guid: aac4df2ea5e6d40d39b9b77ebb4f7303, type: 3}
     - target: {fileID: 2074049822077741745, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: m_DrawMode
       value: 1
@@ -240,7 +240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6755853612882880077, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: resourcesList.Array.data[0].count
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6755853612882880077, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: resourcesList.Array.data[1].count
@@ -248,7 +248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6755853612882880077, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: resourcesList.Array.data[2].count
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7731847847254239771, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: Star
@@ -290,7 +290,7 @@ PrefabInstance:
     - target: {fileID: 2074049822077741745, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1628991321501386694, guid: 40943ebc830a744c5a4e99aabdceee95, type: 3}
+      objectReference: {fileID: -1555378249586793724, guid: 8320e45f741c74c25a7eeb98774b9948, type: 3}
     - target: {fileID: 2074049822077741745, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: m_DrawMode
       value: 1
@@ -361,7 +361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6755853612882880077, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: resourcesList.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6755853612882880077, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: resourcesList.Array.data[0].kind
@@ -400,11 +400,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
---- !u!1 &918577887 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5943921273703598251, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
-  m_PrefabInstance: {fileID: 918577886}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1247667797 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7726781786548930533, guid: 337da925142974caeaaa97fd778f3cfb, type: 3}
@@ -508,7 +503,7 @@ PrefabInstance:
     - target: {fileID: 2074049822077741745, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 2396250748795188391, guid: 57a49a04c78f948b68cf65f3e670dc03, type: 3}
+      objectReference: {fileID: 1628991321501386694, guid: 40943ebc830a744c5a4e99aabdceee95, type: 3}
     - target: {fileID: 2074049822077741745, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: m_DrawMode
       value: 1
@@ -579,7 +574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6755853612882880077, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: resourcesList.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6755853612882880077, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: resourcesList.Array.data[0].kind
@@ -590,20 +585,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6755853612882880077, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
-      propertyPath: resourcesList.Array.data[2].kind
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6755853612882880077, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: resourcesList.Array.data[0].count
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6755853612882880077, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: resourcesList.Array.data[1].count
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6755853612882880077, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
-      propertyPath: resourcesList.Array.data[2].count
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7731847847254239771, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: Star
@@ -615,7 +602,7 @@ PrefabInstance:
       objectReference: {fileID: 553878705}
     - target: {fileID: 7731847847254239771, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: speed
-      value: -3
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7731847847254239771, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: segments
@@ -988,7 +975,7 @@ PrefabInstance:
     - target: {fileID: 2074049822077741745, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 951679504244899334, guid: aac4df2ea5e6d40d39b9b77ebb4f7303, type: 3}
+      objectReference: {fileID: -7382262175430794712, guid: b4acbe1fa566a42fc979496d6c9b45a4, type: 3}
     - target: {fileID: 2074049822077741745, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: m_DrawMode
       value: 1
@@ -1075,7 +1062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6755853612882880077, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: resourcesList.Array.data[0].count
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6755853612882880077, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: resourcesList.Array.data[1].count
@@ -1083,7 +1070,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6755853612882880077, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: resourcesList.Array.data[2].count
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6755853612882880077, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: resourcesList.Array.data[3].count
@@ -1099,7 +1086,7 @@ PrefabInstance:
       objectReference: {fileID: 553878705}
     - target: {fileID: 7731847847254239771, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: speed
-      value: 4
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7731847847254239771, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: segments
@@ -1608,7 +1595,7 @@ PrefabInstance:
     - target: {fileID: 2074049822077741745, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -8963534596690228247, guid: a524987e1b18a4c9ca5a107e06b5ae90, type: 3}
+      objectReference: {fileID: 2396250748795188391, guid: 57a49a04c78f948b68cf65f3e670dc03, type: 3}
     - target: {fileID: 4578702985234262877, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -1671,19 +1658,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6755853612882880077, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: resourcesList.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6755853612882880077, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: resourcesList.Array.data[0].kind
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6755853612882880077, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: resourcesList.Array.data[1].kind
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6755853612882880077, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
-      propertyPath: resourcesList.Array.data[2].kind
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6755853612882880077, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: resourcesList.Array.data[0].count
@@ -1691,10 +1674,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6755853612882880077, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: resourcesList.Array.data[1].count
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6755853612882880077, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
-      propertyPath: resourcesList.Array.data[2].count
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7731847847254239771, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
@@ -1707,13 +1686,18 @@ PrefabInstance:
       objectReference: {fileID: 553878705}
     - target: {fileID: 7731847847254239771, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
       propertyPath: speed
-      value: 5
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
+--- !u!1 &6143541259137357235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5943921273703598251, guid: 70ba96ce18e304a02b626e560587af2f, type: 3}
+  m_PrefabInstance: {fileID: 6143541259137357234}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7067550568872740496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1772,12 +1756,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6062552347526303323, guid: b0563bdb6dfae41eab32bda96dcfd2a7, type: 3}
       propertyPath: currentFuel
-      value: 18
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 6062552347526303323, guid: b0563bdb6dfae41eab32bda96dcfd2a7, type: 3}
       propertyPath: currentPlanet
       value: 
-      objectReference: {fileID: 918577887}
+      objectReference: {fileID: 6143541259137357235}
     - target: {fileID: 6440109956730029594, guid: b0563bdb6dfae41eab32bda96dcfd2a7, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1860,15 +1844,15 @@ PrefabInstance:
       objectReference: {fileID: 125313042}
     - target: {fileID: 8175284238656144213, guid: bcbb96c39712a440a9886fb27b8fe6d0, type: 3}
       propertyPath: requiredResources.Array.data[0].count
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8175284238656144213, guid: bcbb96c39712a440a9886fb27b8fe6d0, type: 3}
       propertyPath: requiredResources.Array.data[1].count
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8175284238656144213, guid: bcbb96c39712a440a9886fb27b8fe6d0, type: 3}
       propertyPath: requiredResources.Array.data[2].count
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
