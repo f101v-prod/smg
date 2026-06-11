@@ -1772,7 +1772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6062552347526303323, guid: b0563bdb6dfae41eab32bda96dcfd2a7, type: 3}
       propertyPath: currentFuel
-      value: 23
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 6062552347526303323, guid: b0563bdb6dfae41eab32bda96dcfd2a7, type: 3}
       propertyPath: currentPlanet
